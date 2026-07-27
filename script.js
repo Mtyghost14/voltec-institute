@@ -33,7 +33,7 @@ document
     observer.observe(el);
   });
 
-// Acordeón de etapas (Lego Explorer / Lego Challenge / Mecánica / Programación)
+// Acordeón de etapas (LEGO Explore / LEGO Challenge / Mecánica / Programación)
 const stages = document.querySelectorAll('[data-stage]');
 const activateStage = stage => stages.forEach(s => s.classList.toggle('is-active', s === stage));
 
