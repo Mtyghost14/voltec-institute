@@ -27,8 +27,27 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document
-  .querySelectorAll('.why-card, .program, .detail, .faq__item, .team__text, .team__card, .cta__inner')
+  .querySelectorAll('.why-card, .detail, .faq__item, .team__text, .team__card, .cta__inner')
   .forEach(el => {
     el.classList.add('sr');
     observer.observe(el);
   });
+
+// Acordeón de etapas (Lego Explorer / Lego Challenge / Mecánica / Programación)
+const stages = document.querySelectorAll('[data-stage]');
+const activateStage = stage => stages.forEach(s => s.classList.toggle('is-active', s === stage));
+
+stages.forEach(stage => {
+  stage.addEventListener('click', e => {
+    if (stage.classList.contains('is-active') && e.target.closest('a')) return;
+    if (!stage.classList.contains('is-active')) e.preventDefault();
+    activateStage(stage);
+  });
+});
+
+const stagesTrack = document.querySelector('.stages');
+if (stagesTrack && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  stagesTrack.querySelectorAll('[data-stage]').forEach(stage => {
+    stage.addEventListener('mouseenter', () => activateStage(stage));
+  });
+}
