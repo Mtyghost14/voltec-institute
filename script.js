@@ -33,6 +33,16 @@ document
     observer.observe(el);
   });
 
+// Pop-out de preinscripción
+const promo = document.getElementById('promo');
+if (promo && !sessionStorage.getItem('promoCerrado')) {
+  promo.hidden = false;
+  document.getElementById('promoClose').addEventListener('click', () => {
+    promo.hidden = true;
+    sessionStorage.setItem('promoCerrado', '1');
+  });
+}
+
 // Acordeón de etapas (LEGO Explore / LEGO Challenge / Mecánica / Programación)
 const stages = document.querySelectorAll('[data-stage]');
 const activateStage = stage => stages.forEach(s => s.classList.toggle('is-active', s === stage));
