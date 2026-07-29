@@ -250,11 +250,11 @@ body {
   font-weight: 900;
   font-style: italic;
   text-transform: uppercase;
-  font-size: clamp(2.4rem, 6.4vw, 4.9rem);
-  line-height: 1.02;
-  letter-spacing: -.015em;
+  font-size: clamp(1.9rem, 4.6vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -.01em;
   margin: 26px 0 24px;
-  max-width: 13ch;
+  max-width: 22ch;
 }
 .hero__title span { display: block; }
 .hero__title-electric {
