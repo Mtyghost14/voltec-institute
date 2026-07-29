@@ -55,3 +55,14 @@ if (stagesTrack && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     stage.addEventListener('mouseenter', () => activateStage(stage));
   });
 }
+
+// Efecto de brillo que sigue el cursor en las tarjetas de valores
+if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.glow-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
+      card.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
+    });
+  });
+}
