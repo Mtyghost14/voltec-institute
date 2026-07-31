@@ -925,11 +925,20 @@ body {
   display: grid;
   grid-template-columns: 1.25fr .75fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
 }
 @media (max-width: 900px) { .team__inner { grid-template-columns: 1fr; } }
 .team__text p { color: var(--muted); margin-bottom: 16px; }
 .team__text strong { color: var(--white); }
+.team__text em { color: var(--electric-bright); font-style: italic; }
+.team__more {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: .92rem;
+}
+.team__more a { color: var(--electric-bright); text-decoration: none; }
+.team__more a:hover { text-decoration: underline; }
 .team__points { list-style: none; margin-top: 26px; display: grid; gap: 14px; }
 .team__points li {
   position: relative;
@@ -946,7 +955,8 @@ body {
 .team__points strong { color: var(--white); }
 
 .team__card {
-  position: relative;
+  position: sticky;
+  top: 110px;
   text-align: center;
   border: 1px solid rgba(77,195,255,.3);
   border-radius: 26px;
